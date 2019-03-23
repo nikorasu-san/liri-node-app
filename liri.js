@@ -7,6 +7,7 @@ moment().format();
 var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
+var fs = require("fs");
 
 // define user input 
 var command = process.argv[2];
@@ -28,7 +29,13 @@ switch (command) {
 // define functions
 
 function concert(artist) {
-    // create api url
+    // input validator
+    if (!artist) {
+        var message = "Did you give me an artist to search for?"
+        console.log(message)
+        return message
+    }
+    // create bandsintown api url
     let queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
     axios.get(queryUrl).then(function (response) {
         // loop the response.data
@@ -49,7 +56,11 @@ function concert(artist) {
 }
 
 function song(input) {
-
+    // input validator
+    if (!input) {
+        input = "The Sign"
+    }
+    // ping Spotify
     spotify.search({ type: 'track', query: input })
         .then(function (response) {
             for (var i = 0; i < response.tracks.items.length; i++) {
@@ -66,13 +77,27 @@ function song(input) {
         });
 }
 
-function movie() {
-    axios.get("http://www.omdbapi.com/?apikey=[yourkey]&")
-        .then(function (response) {
-            console.log(response);
-        })
+function movie(title) {
+    if (!title) {
+        title = "Mr.+Nobody";
+    }
+    var url = "http://www.omdbapi.com/?apikey=trilogy&type=movie&t=" + title;
+    axios.get(url).then(function (response) {
+        console.log("Title: ", response.data.Title);
+        console.log("Year: ", response.data.Year);
+        console.log("IMDB Rating: ", response.data.Ratings[0].value);
+        console.log("Rotten Tomatoes Rating: ", response.data.Ratings[1].value);
+        console.log("Country: ", response.data.Country);
+        console.log("Language: ", response.data.Language);
+        console.log("Plot: ", response.data.Plot);
+        console.log("Actors: ", response.data.Actors);
+    })
         .catch(function (error) {
             console.log(error);
         });
+}
+
+function readText() {
+
 }
 
