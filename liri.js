@@ -8,24 +8,42 @@ var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var fs = require("fs");
+var inquirer = require('inquirer');
+
 
 // define user input 
-var command = process.argv[2];
-var term = process.argv[3];
+// var command = process.argv[2];
+// var term = process.argv[3];
 
-// conditional
-switch (command) {
-    case "concert-this": concert(term);
-        break;
-    case "spotify-this-song": song(term);
-        break;
-    case "movie-this": movie(term);
-        break;
-    case "do-what-it-says": readText();
-        break;
-    default: console.log("plz choose concert-this, spotify, or something else");
-}
+inquirer.prompt([
+    /* Pass your questions in here */
+    {
+        type: "list",
+        message: "Which type of search do you want to perform? (a performer's concert, a song on Spotify, a movie on OMDB, or surprise from a text file",
+        choices: [{ name: "concert-this" }, { name: "spotify-this-song" }, { name: "movie-this" }, { name: "do-what-it-says", checked: true }],
+        name: "command"
+    }, {
+        type: "input",
+        message: "Please enter the name that you want to search",
+        name: "term"
+    }
+])
+    .then(answers => {
 
+        // conditional
+        switch (answers.command) {
+            case "concert-this": concert(answers.term);
+                break;
+            case "spotify-this-song": song(answers.term);
+                break;
+            case "movie-this": movie(answers.term);
+                break;
+            case "do-what-it-says": readText();
+                break;
+            default: console.log("plz choose concert-this, spotify, or something else");
+        }
+
+    });
 // define functions
 
 function concert(artist) {
