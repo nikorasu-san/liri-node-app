@@ -21,7 +21,7 @@ switch (command) {
         break;
     case "movie-this": movie(term);
         break;
-    case "do-what-it-says": console.log("rando");
+    case "do-what-it-says": readText();
         break;
     default: console.log("plz choose concert-this, spotify, or something else");
 }
@@ -43,7 +43,7 @@ function concert(artist) {
             let venue = response.data[i].venue.name;
             let address = response.data[i].venue.city + ", " + response.data[i].venue.region + " " + response.data[i].venue.country
             let date = moment(response.data[i].datetime).format("MM/DD/YYYY")
-            console.log(`---Concert ${i + 1} of ${response.data.length}---`)
+            console.log(`//---Concert ${i + 1} of ${response.data.length}---`)
             console.log("Venue: ", venue)
             console.log("Location: ", address)
             console.log("Date: ", date)
@@ -64,7 +64,7 @@ function song(input) {
     spotify.search({ type: 'track', query: input })
         .then(function (response) {
             for (var i = 0; i < response.tracks.items.length; i++) {
-                console.log(`---Track Result ${i + 1} of ${response.tracks.items.length}---`)
+                console.log(`//---Track Result ${i + 1} of ${response.tracks.items.length}---`)
                 console.log("artist: ", response.tracks.items[i].artists[0].name);
                 console.log("song: ", response.tracks.items[i].name);
                 console.log("album: ", response.tracks.items[i].album.name);
@@ -78,6 +78,7 @@ function song(input) {
 }
 
 function movie(title) {
+    // input validator
     if (!title) {
         title = "Mr.+Nobody";
     }
@@ -98,6 +99,22 @@ function movie(title) {
 }
 
 function readText() {
-
+    // read file
+    fs.readFile('./random.txt', 'utf8', function (err, data) {
+        if (err) throw err;
+        console.log(data);
+        // identify command and term
+        var fileInput = data.split(",");
+        // conditional to run command and term
+        switch (fileInput[0]) {
+            case "concert-this": concert(fileInput[1]);
+                break;
+            case "spotify-this-song": song(fileInput[1]);
+                break;
+            case "movie-this": movie(fileInput[1]);
+                break;
+            default: console.log("The text file doesn't include a valid command and search term syntax: concert-this,\"performer name\"; spotify-this-song,\"song title\"; or movie-this,\"movie  title\"");
+        }
+    });
 }
 
