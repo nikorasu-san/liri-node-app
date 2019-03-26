@@ -18,6 +18,8 @@ The log.txt file will serve as a search history file that tracks user input and 
 3. If there is a second question, type in a relevant search term for the question. Then press enter.
 4. Observe results and feel free to check out log.txt.
 
+For a video demonstration - https://drive.google.com/file/d/1DS_PP2eJV3AAEucfwSHAdtUMkBYkerkA/view
+
 ## Tech Used
 * Javascript
 * Dependencies noted in package.json
