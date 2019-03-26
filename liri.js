@@ -3,7 +3,6 @@
 require("dotenv").config();
 var axios = require("axios")
 var moment = require('moment');
-moment().format();
 var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
@@ -11,61 +10,90 @@ var fs = require("fs");
 var inquirer = require('inquirer');
 
 
-// define user input 
-// var command = process.argv[2];
-// var term = process.argv[3];
-
-inquirer.prompt([
-    /* Pass your questions in here */
+// first question
+inquirer.prompt(
     {
         type: "list",
-        message: "Which type of search do you want to perform? (a performer's concert, a song on Spotify, a movie on OMDB, or surprise from a text file",
-        choices: [{ name: "concert-this" }, { name: "spotify-this-song" }, { name: "movie-this" }, { name: "do-what-it-says", checked: true }],
+        message: "Which type of search do you want to perform?",
+        choices: ["concert-this", "spotify-this-song", "movie-this", "do-what-it-says"],
         name: "command"
-    }, {
-        type: "input",
-        message: "Please enter the name that you want to search",
-        name: "term"
     }
-])
+)
     .then(answers => {
-
-        // conditional
+        // declare a variable to customize second prompt
+        var topic = ""
         switch (answers.command) {
-            case "concert-this": concert(answers.term);
+            // assign topic and run 2nd question
+            case "concert-this": topic = "performer"; secondPrompt();
                 break;
-            case "spotify-this-song": song(answers.term);
+            case "spotify-this-song": topic = "song title"; secondPrompt();
                 break;
-            case "movie-this": movie(answers.term);
+            case "movie-this": topic = "movie title"; secondPrompt();
                 break;
+            // immediately read the text file
             case "do-what-it-says": readText();
                 break;
             default: console.log("plz choose concert-this, spotify, or something else");
         }
+        // define function to generate second question based on first answer
+        function secondPrompt() {
+            inquirer.prompt({
+                type: "input",
+                message: `Please enter the ${topic} that you want to search`,
+                name: "term"
+            }
+            ).then(answers => {
+                // run a search func based on the answer and tailored message
+                switch (topic) {
+                    case "performer": concert(answers.term);
+                        break;
+                    case "song title": song(answers.term);
+                        break;
+                    case "movie title": movie(answers.term);
+                        break;
+                    default: console.log("How did you trigger this message!? Please provide steps at https://github.com/nikorasu-san/liri-node-app");
+                }
+            })
+        }
+        // conditional
+        // switch (answers.command) {
+        //     case "concert-this": concert(answers.term);
+        //         break;
+        //     case "spotify-this-song": song(answers.term);
+        //         break;
+        //     case "movie-this": movie(answers.term);
+        //         break;
+        //     case "do-what-it-says": readText();
+        //         break;
+        //     default: console.log("plz choose concert-this, spotify, or something else");
+        // }
 
     });
-// define functions
 
+// define functions
 function concert(artist) {
     // input validator
     if (!artist) {
-        var message = "Did you give me an artist to search for?"
+        var message = "Sorry. I didn't catch that. Can you run this again and give me an artist for the search?"
         console.log(message)
         return message
     }
-    // create bandsintown api url
+    // ping bandsintown api
     let queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
     axios.get(queryUrl).then(function (response) {
+        // check if there are concerts in the successful return
+        if (!response.data[0]) {
+            console.log("We couldn't find any upcoming shows.")
+        }
         // loop the response.data
         for (var i = 0; i < response.data.length; i++) {
             let venue = response.data[i].venue.name;
-            let address = response.data[i].venue.city + ", " + response.data[i].venue.region + " " + response.data[i].venue.country
+            let address = response.data[i].venue.city + ", " + response.data[i].venue.region + " " + response.data[i].venue.country;
             let date = moment(response.data[i].datetime).format("MM/DD/YYYY")
-            console.log(`//---Concert ${i + 1} of ${response.data.length}---`)
+            console.log(`//-----Concert ${i + 1} of ${response.data.length}-----`)
             console.log("Venue: ", venue)
             console.log("Location: ", address)
             console.log("Date: ", date)
-            // console.log(`-----------------------------`)
         }
     })
         .catch(function (error) {
@@ -98,10 +126,12 @@ function song(input) {
 function movie(title) {
     // input validator
     if (!title) {
-        title = "Mr.+Nobody";
+        title = "Mr. Nobody";
     }
+    // ping OMDB api
     var url = "http://www.omdbapi.com/?apikey=trilogy&type=movie&t=" + title;
     axios.get(url).then(function (response) {
+        // print data points from response
         console.log("Title: ", response.data.Title);
         console.log("Year: ", response.data.Year);
         console.log("IMDB Rating: ", response.data.Ratings[0].value);
