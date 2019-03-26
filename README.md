@@ -12,6 +12,12 @@ When liri.js is run, the user will receive the options above as a list. Use the 
 
 The log.txt file will serve as a search history file that tracks user input and the results printed in the console.
 
+## Instructions
+1. In CLI, enter 'node liri.js'
+2. Use arrow keys and enter key to select one of the 4 available search options.
+3. If there is a second question, type in a relevant search term for the question. Then press enter.
+4. Observe results and feel free to check out log.txt.
+
 ## Tech Used
 * Javascript
 * Dependencies noted in package.json
