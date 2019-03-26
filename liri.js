@@ -102,6 +102,10 @@ function song(input) {
     // ping Spotify
     spotify.search({ type: 'track', query: input })
         .then(function (response) {
+            // check for any valid results
+            if (!response.tracks.items[0]) {
+                console.log("Sorry. We couldn't find any songs.")
+            }
             for (var i = 0; i < response.tracks.items.length; i++) {
                 // console.log(`//---Track Result ${i + 1} of ${response.tracks.items.length}---`)
                 // console.log("artist: ", response.tracks.items[i].artists[0].name);
@@ -127,28 +131,37 @@ function movie(title) {
     // ping OMDB api
     var url = "http://www.omdbapi.com/?apikey=trilogy&type=movie&t=" + title;
     axios.get(url).then(function (response) {
-        // console.log(title)
-        // console.log(response.data)
-        // console.log(url)
-
-        // print data points from response
-        // console.log("Title: ", response.data.Title);
-        // console.log("Year: ", response.data.Year);
-        // console.log("IMDB Rating: ", response.data.Ratings[0].value);
-        // console.log("Rotten Tomatoes Rating: ", response.data.Ratings[1].value);
-        // console.log("Country: ", response.data.Country);
-        // console.log("Language: ", response.data.Language);
-        // console.log("Plot: ", response.data.Plot);
-        // console.log("Actors: ", response.data.Actors);
-
-        // found that not having a Rotten T score often broke my results variable 
-        if (!response.data.Ratings[1]) {
-            var result = `Title: ${response.data.Title} \b\n Year: ${response.data.Year} \b\n IMDB Rating: ${response.data.Ratings[0].value} \b\n Rotten Tomatoes Rating: not found. \b\n Country: ${response.data.Country} \b\n Language: ${response.data.Language} \b\n Plot: ${response.data.Plot} \b\n Actors: ${response.data.Actors}`;
+        // check if there are concerts in the successful return
+        if (response.data.Response === 'False') {
+            var result = "We couldn't find any movie titles."
+            console.log(result)
+            writeResult(result);
         } else {
-            var result = `Title: ${response.data.Title} \b\n Year: ${response.data.Year} \b\n IMDB Rating: ${response.data.Ratings[0].value} \b\n Rotten Tomatoes Rating: ${response.data.Ratings[1].value} \b\n Country: ${response.data.Country} \b\n Language: ${response.data.Language} \b\n Plot: ${response.data.Plot} \b\n Actors: ${response.data.Actors}`;
+
+
+            // console.log(title)
+            //console.log("data", response.data)
+            // console.log(url)
+
+            // print data points from response
+            // console.log("Title: ", response.data.Title);
+            // console.log("Year: ", response.data.Year);
+            // console.log("IMDB Rating: ", response.data.Ratings[0].value);
+            // console.log("Rotten Tomatoes Rating: ", response.data.Ratings[1].value);
+            // console.log("Country: ", response.data.Country);
+            // console.log("Language: ", response.data.Language);
+            // console.log("Plot: ", response.data.Plot);
+            // console.log("Actors: ", response.data.Actors);
+
+            // found that not having a Rotten T score often broke my results variable 
+            if (!response.data.Ratings[1]) {
+                var result = `Title: ${response.data.Title} \b\n Year: ${response.data.Year} \b\n IMDB Rating: ${response.data.Ratings[0].value} \b\n Rotten Tomatoes Rating: not found. \b\n Country: ${response.data.Country} \b\n Language: ${response.data.Language} \b\n Plot: ${response.data.Plot} \b\n Actors: ${response.data.Actors}`;
+            } else {
+                var result = `Title: ${response.data.Title} \b\n Year: ${response.data.Year} \b\n IMDB Rating: ${response.data.Ratings[0].value} \b\n Rotten Tomatoes Rating: ${response.data.Ratings[1].value} \b\n Country: ${response.data.Country} \b\n Language: ${response.data.Language} \b\n Plot: ${response.data.Plot} \b\n Actors: ${response.data.Actors}`;
+            }
+            console.log(result);
+            writeResult(result);
         }
-        console.log(result);
-        writeResult(result);
     }).catch(function (error) {
         console.log(error);
     });
@@ -174,18 +187,18 @@ function readText() {
     });
 }
 
-// add to a file
+// functions to append user actions and results to the log.txt
 function writeCommand(command) {
     fs.appendFile('log.txt', `${command},`, (err) => {
         if (err) throw err;
-        console.log('The "command" was appended to log.txt!');
+        console.log('The command was appended to log.txt!');
     });
 }
 
 function writeTerm(term) {
     fs.appendFile('log.txt', `${term}\b\n`, (err) => {
         if (err) throw err;
-        console.log('The "search term" was appended to log.txt!');
+        console.log('The search term was appended to log.txt!');
     });
 }
 
