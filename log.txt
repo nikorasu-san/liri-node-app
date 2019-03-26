@@ -1198,3 +1198,152 @@ Title: Mr. Nobody 
  Language: English, Mohawk 
  Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible. 
  Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+concert-this,lizzo
+//-----Concert 1 of 37----- 
+ Venue: Coachella Music and Arts Festival 
+ Location: Indio, CA United States 
+ Date: 04/14/2019
+//-----Concert 2 of 37----- 
+ Venue: Coachella Music and Arts Festival 
+ Location: Indio, CA United States 
+ Date: 04/21/2019
+//-----Concert 3 of 37----- 
+ Venue: The Warfield 
+ Location: San Francisco, CA United States 
+ Date: 04/22/2019
+//-----Concert 4 of 37----- 
+ Venue: The Warfield 
+ Location: San Francisco, CA United States 
+ Date: 04/24/2019
+//-----Concert 5 of 37----- 
+ Venue: Roseland Theater 
+ Location: Portland, OR United States 
+ Date: 04/26/2019
+//-----Concert 6 of 37----- 
+ Venue: Roseland Theater 
+ Location: Portland, OR United States 
+ Date: 04/27/2019
+//-----Concert 7 of 37----- 
+ Venue: Showbox SoDo  
+ Location: Seattle, WA United States 
+ Date: 04/28/2019
+//-----Concert 8 of 37----- 
+ Venue: The Union Event Center 
+ Location: Salt Lake City, UT United States 
+ Date: 04/30/2019
+//-----Concert 9 of 37----- 
+ Venue: The Ogden Theatre 
+ Location: Denver, CO United States 
+ Date: 05/01/2019
+//-----Concert 10 of 37----- 
+ Venue: Riviera Theatre 
+ Location: Chicago, IL United States 
+ Date: 05/03/2019
+//-----Concert 11 of 37----- 
+ Venue: Riviera Theatre 
+ Location: Chicago, IL United States 
+ Date: 05/04/2019
+//-----Concert 12 of 37----- 
+ Venue: Palace Theatre 
+ Location: Saint Paul, MN United States 
+ Date: 05/05/2019
+//-----Concert 13 of 37----- 
+ Venue: Cannery Ballroom 
+ Location: Nashville, TN United States 
+ Date: 05/07/2019
+//-----Concert 14 of 37----- 
+ Venue: Tabernacle 
+ Location: Atlanta, GA United States 
+ Date: 05/09/2019
+//-----Concert 15 of 37----- 
+ Venue: Ritz Raleigh 
+ Location: Raleigh, NC United States 
+ Date: 05/10/2019
+//-----Concert 16 of 37----- 
+ Venue: Brooklyn Steel 
+ Location: Brooklyn, NY United States 
+ Date: 05/12/2019
+//-----Concert 17 of 37----- 
+ Venue: Brooklyn Steel 
+ Location: Brooklyn, NY United States 
+ Date: 05/13/2019
+//-----Concert 18 of 37----- 
+ Venue: Saint Andrew's Hall 
+ Location: Detroit, MI United States 
+ Date: 05/15/2019
+//-----Concert 19 of 37----- 
+ Venue: The Danforth Music Hall 
+ Location: Toronto,  Canada 
+ Date: 05/16/2019
+//-----Concert 20 of 37----- 
+ Venue: TLA 
+ Location: Philadelphia, PA United States 
+ Date: 05/18/2019
+//-----Concert 21 of 37----- 
+ Venue: 9:30 Club 
+ Location: Washington, DC United States 
+ Date: 05/19/2019
+//-----Concert 22 of 37----- 
+ Venue: 9:30 Club 
+ Location: Washington, DC United States 
+ Date: 05/20/2019
+//-----Concert 23 of 37----- 
+ Venue: House of Blues Boston 
+ Location: Boston, MA United States 
+ Date: 05/22/2019
+//-----Concert 24 of 37----- 
+ Venue: Terminal 5 
+ Location: New York, NY United States 
+ Date: 05/23/2019
+//-----Concert 25 of 37----- 
+ Venue: O2 Ritz Manchester 
+ Location: Manchester,  United Kingdom 
+ Date: 05/26/2019
+//-----Concert 26 of 37----- 
+ Venue: O2 Forum Kentish Town 
+ Location: London,  United Kingdom 
+ Date: 05/27/2019
+//-----Concert 27 of 37----- 
+ Venue: Alhambra 
+ Location: Paris,  France 
+ Date: 05/29/2019
+//-----Concert 28 of 37----- 
+ Venue: Arvest Bank Theatre At the Midland 
+ Location: Kansas City, MO United States 
+ Date: 06/21/2019
+//-----Concert 29 of 37----- 
+ Venue: Festivalpark Werchter 
+ Location: Werchter,  Belgium 
+ Date: 06/30/2019
+//-----Concert 30 of 37----- 
+ Venue: Paradiso Noord, Tolhuistuin 
+ Location: Nieuw-amsterdam,  Netherlands 
+ Date: 07/02/2019
+//-----Concert 31 of 37----- 
+ Venue: Paradiso Noord, Tolhuistuin 
+ Location: Nieuw-amsterdam,  Netherlands 
+ Date: 07/03/2019
+//-----Concert 32 of 37----- 
+ Venue: Gunnersbury Park 
+ Location: London,  United Kingdom 
+ Date: 07/12/2019
+//-----Concert 33 of 37----- 
+ Venue: Gunnersbury Park 
+ Location: London,  United Kingdom 
+ Date: 07/13/2019
+//-----Concert 34 of 37----- 
+ Venue: La Seine Musicale 
+ Location: Boulogne-billancourt,  France 
+ Date: 07/14/2019
+//-----Concert 35 of 37----- 
+ Venue: Capitol Hill (Block Party) 
+ Location: Seattle, WA United States 
+ Date: 07/19/2019
+//-----Concert 36 of 37----- 
+ Venue: West Riverfront Park 
+ Location: Detroit, MI United States 
+ Date: 07/27/2019
+//-----Concert 37 of 37----- 
+ Venue: West Riverfront Park 
+ Location: Detroit, MI United States 
+ Date: 07/28/2019

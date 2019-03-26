@@ -34,13 +34,13 @@ inquirer.prompt(
             // immediately read the text file
             case "do-what-it-says": readText();
                 break;
-            default: console.log("plz choose concert-this, spotify, or something else");
+            default: console.log("Please choose concert-this, spotify, or something else");
         }
         // define function to generate second question based on first answer
         function secondPrompt() {
             inquirer.prompt({
                 type: "input",
-                message: `Please enter the ${topic} that you want to search`,
+                message: `Please enter the ${topic} that you want to search.`,
                 name: "term"
             }
             ).then(answers => {
@@ -53,7 +53,7 @@ inquirer.prompt(
                         break;
                     case "movie title": movie(answers.term);
                         break;
-                    default: console.log("How did you trigger this message!? Please provide steps at https://github.com/nikorasu-san/liri-node-app");
+                    default: console.log("How did you trigger this message!? Please provide steps at https://github.com/nikorasu-san/liri-node-app.");
                 }
             })
         }
