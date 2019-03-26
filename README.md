@@ -21,11 +21,11 @@ The log.txt file will serve as a search history file that tracks user input and 
 ## Tech Used
 * Javascript
 * Dependencies noted in package.json
-- "axios": "^0.18.0",
-- "dotenv": "^7.0.0",
-- "inquirer": "^6.2.2",
-- "moment": "^2.24.0",
-- "node-spotify-api": "^1.0.7"
+    - "axios": "^0.18.0",
+    - "dotenv": "^7.0.0",
+    - "inquirer": "^6.2.2",
+    - "moment": "^2.24.0",
+    - "node-spotify-api": "^1.0.7"
 
 
 ## Future Development
