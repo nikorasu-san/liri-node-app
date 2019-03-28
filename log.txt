@@ -1347,3 +1347,21 @@ concert-this,lizzo
  Venue: West Riverfront Park 
  Location: Detroit, MI United States 
  Date: 07/28/2019
+movie-this,get out
+Title: Get Out 
+Year: 2017 
+IMDB Rating: undefined 
+ Rotten Tomatoes Rating: undefined 
+ Country: Japan, USA 
+ Language: English 
+ Plot: A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point. 
+ Actors: Daniel Kaluuya, Allison Williams, Catherine Keener, Bradley Whitford
+movie-this,get out
+Title: Get Out 
+Year: 2017 
+IMDB Rating: undefined 
+Rotten Tomatoes Rating: undefined 
+Country: Japan, USA 
+Language: English 
+Plot: A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point. 
+Actors: Daniel Kaluuya, Allison Williams, Catherine Keener, Bradley Whitford

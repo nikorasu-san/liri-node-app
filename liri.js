@@ -130,9 +130,9 @@ function movie(title) {
         } else {
             // found that not having a Rotten T score often broke my results variable 
             if (!response.data.Ratings[1]) {
-                var result = `Title: ${response.data.Title} \b\n Year: ${response.data.Year} \b\n IMDB Rating: ${response.data.Ratings[0].value} \b\n Rotten Tomatoes Rating: not found. \b\n Country: ${response.data.Country} \b\n Language: ${response.data.Language} \b\n Plot: ${response.data.Plot} \b\n Actors: ${response.data.Actors}`;
+                var result = `Title: ${response.data.Title} \b\nYear: ${response.data.Year} \b\nIMDB Rating: ${response.data.Ratings[0].value} \b\nRotten Tomatoes Rating: not found. \b\nCountry: ${response.data.Country} \b\nLanguage: ${response.data.Language} \b\nPlot: ${response.data.Plot} \b\nActors: ${response.data.Actors}`;
             } else {
-                var result = `Title: ${response.data.Title} \b\n Year: ${response.data.Year} \b\n IMDB Rating: ${response.data.Ratings[0].value} \b\n Rotten Tomatoes Rating: ${response.data.Ratings[1].value} \b\n Country: ${response.data.Country} \b\n Language: ${response.data.Language} \b\n Plot: ${response.data.Plot} \b\n Actors: ${response.data.Actors}`;
+                var result = `Title: ${response.data.Title} \b\nYear: ${response.data.Year} \b\nIMDB Rating: ${response.data.Ratings[0].value} \b\nRotten Tomatoes Rating: ${response.data.Ratings[1].value} \b\nCountry: ${response.data.Country} \b\nLanguage: ${response.data.Language} \b\nPlot: ${response.data.Plot} \b\nActors: ${response.data.Actors}`;
             }
             // print data points from response
             console.log(result);
