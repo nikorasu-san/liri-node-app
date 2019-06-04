@@ -21,7 +21,11 @@ The log.txt file will serve as a search history file that tracks user input and 
 For a video demonstration - https://drive.google.com/file/d/1DS_PP2eJV3AAEucfwSHAdtUMkBYkerkA/view
 
 ## Tech Used
+<<<<<<< HEAD
 * Node JS
+=======
+* Node.js
+>>>>>>> a554e993386e20dbf11f1f91e2a81922156a160c
 * Dependencies noted in package.json
     - "axios": "^0.18.0",
     - "dotenv": "^7.0.0",
