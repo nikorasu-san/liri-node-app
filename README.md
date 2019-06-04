@@ -23,7 +23,7 @@ For a video demonstration - https://drive.google.com/file/d/1DS_PP2eJV3AAEucfwSH
 ## Tech Used
 * Node.js
 * Dependencies noted in package.json
-    - "axios": "^0.18.0",
+    - "axios": "^0.19.0",
     - "dotenv": "^7.0.0",
     - "inquirer": "^6.2.2",
     - "moment": "^2.24.0",
